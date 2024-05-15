@@ -2,22 +2,33 @@ pipeline {
     agent any
     
     stages {
-        stage('Build and Test') {
+        stage('Build') {
             steps {
-                // Checkout the code from the repository
-                checkout scm
-                
-                // Perform build and test steps
-                sh 'ls -la' // List files in the workspace directory (for demonstration)
-                // Add more build and test commands here as needed
+                // Define your build steps here
+                echo 'Building...'
+                // Add more build steps as needed
+            }
+        }
+        stage('Test') {
+            steps {
+                // Define your test steps here
+                echo 'Testing...'
+                // Add more test steps as needed
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Define your deployment steps here
+                echo 'Deploying...'
+                // Add more deployment steps as needed
             }
         }
     }
     
-    // Post-build actions (optional)
     post {
         always {
             // Clean up or perform any post-build actions here
+            echo "Done!"
         }
     }
 }
